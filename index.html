@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- 
+      window.dispatchEvent(new Event('resize')); is needed only for the nice demo.
+      But bug is reproducable even without it 
+    -->
+    <button
+      onClick="mapWrapper.classList.toggle('high'); window.dispatchEvent(new Event('resize'));"
+    >
+      Change map size
+    </button>
+
+    <div id="mapWrapper">
+      <p class="more-than-512">
+        Map height is more than 512px.
+        <span style="color: red"
+          >Zoom out button is NOT disabled at the minimum zoom. It's a bug</span
+        >
+      </p>
+      <p class="less-than-512">
+        Map height is less than 512px.
+        <span style="color: green"
+          >Zoom out button is disabled at the minimum zoom. Works as
+          expected</span
+        >
+      </p>
+      <span class="hint">Hint: Zoom in and then try to zoom out as much as possible</span>
+      <div id="map"></div>
+    </div>
+  </body>
+</html>

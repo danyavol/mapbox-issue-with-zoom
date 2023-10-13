@@ -1,0 +1,21 @@
+#mapWrapper.high .less-than-512 {
+  display: none;
+}
+
+#mapWrapper:not(.high) .more-than-512 {
+  display: none;
+}
+
+#mapWrapper #map {
+  height: 500px; /* Works as expected when less than 512px */
+  width: 100%;
+}
+
+#mapWrapper.high #map {
+  height: 540px; /* Doesn't work when more than 512px */
+}
+
+.hint {
+  font-style: italic;
+  color: darkgray;
+}
